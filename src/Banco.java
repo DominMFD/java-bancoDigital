@@ -1,9 +1,15 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class Banco {
 
 	private String nome;
 	private List<Conta> contas;
+
+	public Banco (String nome) {
+		this.contas = new ArrayList<Conta>();
+		this.nome = nome;
+	}
 
 	public String getNome() {
 		return nome;
@@ -17,8 +23,15 @@ public class Banco {
 		return contas;
 	}
 
-	public void setContas(List<Conta> contas) {
-		this.contas = contas;
+	public void setContas(Conta conta) {
+		this.contas.add(conta);
+	}
+
+	public void ExibirContas() {
+		System.out.println(nome);
+		for (Conta conta : contas) {
+			conta.imprimirExtrato();
+		};
 	}
 
 }
